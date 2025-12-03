@@ -13,7 +13,6 @@
 
 ## 3. 데이터셋 분할
 - Train / Validation / Test = 70% / 15% / 15%
-- Stratified split 사용
 
 ## 4. 학습 과정
 - Loss: CrossEntropyLoss
@@ -21,32 +20,26 @@
 - Epochs: 10
 - Batch size: 32
 - 학습 곡선 및 정확도 시각화 포함
-- Validation 성능 모니터링
+- Validation 성능 모니터링 포함
 
 ## 5. 평가 지표
 - Accuracy, Precision, Recall, F1-score
 - Test set에서 최종 평가 수행
-- 결과 예시:
+- 결과:
 
 | Metric     | Score  |
 |------------|-------|
-| Accuracy   | 0.87  |
-| Precision  | 0.85  |
-| Recall     | 0.88  |
-| F1-score   | 0.86  |
+| Accuracy   | 0.87037 |
+| Precision  | 0.916031 |
+| Recall     | 0.833333 |
+| F1-score   | 0.872727 |
 
 ## 6. 모델 가중치 및 벡터화기 위치
-- `news_model.pth` : Google Drive 링크 또는 HuggingFace URL
-- `tfidf.pkl` : Google Drive 링크 또는 HuggingFace URL
+- `news_model.pth` : https://drive.google.com/file/d/1WDD0Ptkqn5x7lXXlvPmp4IQSkIs3HIEW/view?usp=drive_link
+- `tfidf.pkl` : https://drive.google.com/file/d/14s9YqXzfvoHSCDcAdr02MZ1pceL9LIRG/view?usp=drive_link
 
 ## 7. 특이사항 및 한계
+- 실제 사용자 뉴스 선호 데이터가 없고 직접 붙이기엔 양이 너무 많기 때문에(1800개 뉴스) Ground Truth 라벨을 카테고리로 1차 키워드로 2차 분류하여 0과 1로 라벨링 진행( 0: 선호 안함 1: 선호함)
 - 데이터가 소량이라 모델이 과적합(overfitting) 경향 있음
-- 실제 뉴스 데이터보다는 샘플 뉴스로 inference 테스트
-- 클래스 불균형 존재 가능성 있음 → Precision/Recall 중요
-- 모델 개선 시 더 큰 데이터셋과 다양한 뉴스 카테고리 필요
-
-## 8. 재현 방법
-1. Google Colab에서 `training.ipynb` 실행 후 모델 학습
-2. `evaluation.ipynb`로 Test set 평가
-3. `inference.ipynb`로 예시 뉴스 예측 가능
-4. 모델 가중치 다운로드 후 재현 가능
+- 실제 뉴스 데이터보다는 샘플 뉴스(임의로 만든 뉴스)로 inference 테스트
+- 모델 개선 시 더 큰 데이터셋과 더 큰 모델이 필요할 것으로 생각됨
